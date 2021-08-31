@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Hola Platform</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+
+    <link rel='icon' href="./images/favicon.ico">
+    <link rel='shortcut icon' href="./images/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      @font-face {
+      font-family: 'GmarketSansMedium';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #343a42;
+      background-image: radial-gradient(rgb(63, 93, 131) 10%, transparent 10%);
+      background-size: 18px 18px;
+      box-sizing: border-box;
+    }
+
+    #page {
+      width: 860px;
+      height: 600px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -300px;
+      margin-left: -350px;
+    }
+
+    .message-queue {
+      transform: rotate(90deg);
+      transform-origin: 0px 120px;
+      margin-top: -30px;
+    }
+
+    .sys-title {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.5);
+      z-index: 3;
+      font-size: 20px;
+    }
+    
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sidebars.css" rel="stylesheet">
+    <script src="./js/zeu.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sidebars.js"></script>
+    <script src="./js/Chart.js"></script>
+  </head>
+  <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bootstrap" viewBox="0 0 118 94">
+    <title>Bootstrap</title>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+  </symbol>
+  <symbol id="home" viewBox="0 0 16 16">
+    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+  </symbol>
+  <symbol id="speedometer2" viewBox="0 0 16 16">
+    <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+    <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+  </symbol>
+  <symbol id="table" viewBox="0 0 16 16">
+    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+  </symbol>
+  <symbol id="people-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+  </symbol>
+  <symbol id="grid" viewBox="0 0 16 16">
+    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+  </symbol>
+  <symbol id="collection" viewBox="0 0 16 16">
+    <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+  </symbol>
+  <symbol id="calendar3" viewBox="0 0 16 16">
+    <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+    <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+  </symbol>
+  <symbol id="chat-quote-fill" viewBox="0 0 16 16">
+    <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
+  </symbol>
+  <symbol id="cpu-fill" viewBox="0 0 16 16">
+    <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+    <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
+  </symbol>
+  <symbol id="gear-fill" viewBox="0 0 16 16">
+    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+  </symbol>
+  <symbol id="speedometer" viewBox="0 0 16 16">
+    <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+    <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
+  </symbol>
+  <symbol id="toggles2" viewBox="0 0 16 16">
+    <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z"/>
+    <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z"/>
+    <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
+  </symbol>
+  <symbol id="tools" viewBox="0 0 16 16">
+    <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+  <symbol id="geo-fill" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+  </symbol>
+</svg>
+
+<main>
+
+  <h1 class="visually-hidden">Sidebars examples</h1>
+
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-white" style="width: 250px;">
+      <img src="./images/Hola_Platform.png" width=100% height=100% alt="Visit the MDN site">
+    </div>
+
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto " style="font-family: 'GmarketSansMedium';">
+      <li class="nav-item">
+        <a id="menu_1_link" href="./word_cloud" class="nav-link text-white" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+          Main
+        </a>
+      </li>
+      <li>
+        <a id="menu_2_link" href="./hola_pick" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+          News
+        </a>
+      </li>
+      <li>
+        <a id="menu_3_link" href="./news?index=0" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          News Detail
+        </a>
+      </li>
+      <li>
+        <a id="menu_4_link" href="./stock?company=삼성전자&day=20" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Stocks
+        </a>
+      </li>
+      <li>
+        <a id="menu_5_link" href="./architecture" class="nav-link active">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#cpu-fill"/></svg>
+          Architecture
+        </a>
+      </li>
+      <li style="font-family: 'GmarketSansMedium';">
+        <a id="menu_6_link" href="https://www.notion.so/cafc177cb59a40ceb4800470546ea8ff?v=79335d8baac94d86abc0ea765b84bd9a" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#chat-quote-fill"/></svg>
+          Notion
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="d-flex flex-row p-2 flex-shrink-0 bg-light" >
+
+    <div class="row-vh d-flex flex-column ">
+
+            <div id='page'>
+
+              <div class='sys-title' style='top: 30px; left: 30px; font-size: 40px;'>Hola Platform</div>
+              <div class='sys-title' style='top: 54px; left: 190px; font-size: 15px;'>
+              </div>
+              <canvas id='digital-clock' width='120' height='30' style='position: absolute; top: 94px; left: 90px; z-index: 3;'></canvas>
+
+              <canvas id='network-graph' width='860' height='600' style='position: absolute; top: 0px; left: 0px; z-index: 2;'></canvas>
+
+              <div class='sys-title' style='top: 225px; left: 0px;'>[News Crawler]</div>
+              <canvas id='news-crawler' width='120' height='100' style='position: absolute; top: 250px; left: 0px; z-index: 3;'></canvas>
+
+              <div class='sys-title' style='top: 195px; left: 190px;'>[FTP]</div>
+              <canvas id='ftp-server' width='200' height='200' style='position: absolute; top: 220px; left: 180px; z-index: 3;'></canvas>
+              <div class='sys-title' style='top: 145px; left: 360px;'>[HDFS]</div>
+              <canvas id='hdfs-server' width='180' height='360' style='position: absolute; top: 170px; left: 330px; z-index: 3;'></canvas>
+
+              <div class='sys-title' style='top: 405px; left: 546px;'>[KAFKA]</div>
+              <canvas id='message-queue-1' class='message-queue' width='30' height='120' style='position: absolute; top: 350px; left: 510px; z-index: 3;'></canvas>
+              <canvas id='message-queue-2' class='message-queue' width='30' height='120' style='position: absolute; top: 380px; left: 510px; z-index: 3;'></canvas>
+              <canvas id='message-queue-3' class='message-queue' width='30' height='120' style='position: absolute; top: 410px; left: 510px; z-index: 23;'></canvas>
+              <canvas id='message-queue-4' class='message-queue' width='30' height='120' style='position: absolute; top: 440px; left: 510px; z-index: 3;'></canvas>
+
+              <div class='sys-title' style='top: 32px; left: 625px;'>[BERT]</div>
+              <canvas id='bert' width='120' height='80' style='position: absolute; top: 60px; left: 600px; z-index: 3;'></canvas>
+              <div class='sys-title' style='top: 165px; left: 725px;'>[HBase]</div>
+              <canvas id='habse-replicas' width='100' height='100' style='position: absolute; top: 190px; left: 710px; z-index: 3;'></canvas>
+              <div class='sys-title' style='top: 335px; left: 740px; z-index: 3;'>[Spark]</div>
+              <canvas id='spark' width='180' height='80' style='position: absolute; bottom: 160px; left: 680px; z-index: 3;'></canvas>
+
+              <div class='sys-title' style='top: 22px; left: 340px;'>[NiFi Data Flow]</div>
+              <canvas id='nifi-1' width='60' height='60' style='position: absolute; top: 50px; left: 320px; z-index: 3;'></canvas>
+              <canvas id='nifi-2' width='60' height='60' style='position: absolute; top: 50px; left: 380px; z-index: 3;'></canvas>
+              <canvas id='nifi-3' width='60' height='60' style='position: absolute; top: 50px; left: 440px; z-index: 3;'></canvas>
+
+            </div>
+
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<script>
+  // lightGreen
+  var orange = '#ff5722';
+  var lightGreen = '#00d7af';
+  var HEX_BG = 'rgba(255, 255, 255, 0.45)';
+  var lightBlack = '#343a42';
+
+  var yellow = '#ecdf6c';
+  var blue = '#0c87eb';
+
+  var SIGNAL_COLORS = ['#b7fff8', '#6efff1', '#26ffe9', '#00dcc6', '#008578', '#00766a', '#00685d'];
+  function getSignalColor() {
+    return SIGNAL_COLORS[getRandomInt(0, SIGNAL_COLORS.length - 1)];
+  }
+
+  var BLINK_COLORS = ['#ff5722', '#ff6a3c', '#ff7e55', '#ff916f', HEX_BG];
+  function getBlinkColor() {
+    return BLINK_COLORS[getRandomInt(0, BLINK_COLORS.length - 1)]
+  }
+
+  var COLOR = {
+    lightGreen: '#00d7af',
+    lightWhite: '#F8F8FF',
+    lightGrey: '#E0E0E0',
+    lightBlack: '#343a42',
+    black: '#000000',
+    white: '#ffffff',
+    red: '#dc3547',
+    blue: '#007bfb',
+    yellow: '#ffc108',
+    cyan: '#17a2b9',
+    grey: '#6c757e',
+    green: '#28a748',
+    orange: '#ffa500',
+    transparent: 'rgba(255, 255, 255, 0)'
+  };
+
+  zeu.Settings.fps = 120;
+
+  var messageQueues = [];
+  for (var i = 1; i <= 4; i++) {
+
+    var messageQueue = new zeu.MessageQueue('message-queue-' + i, {
+      viewWidth: 30,
+      viewHeight: 120,
+      barHeight: 8,
+      space: 2,
+      speed: 8,
+      maxQueueCapacity: 10
+    });
+    messageQueues.push(messageQueue);
+  }
+
+  setInterval(function() {
+    for (var i = 0; i < 4; i++) {
+      var mq = messageQueues[getRandomInt(0, 3)];
+      mq.push({
+        color: getBlinkColor(),
+        space: getRandomInt(0, 2),
+      });
+    }
+  }, 1000);
+
+  setInterval(function() {
+    for (var i = 0; i < 2; i++) {
+      var mq = messageQueues[getRandomInt(0, 3)];
+      mq.pop();
+    }
+  }, 1000);
+
+  var digitalClock = new zeu.DigitalClock('digital-clock', {
+    numberColor: orange,
+    dashColor: COLOR.transparent,
+  });
+  digitalClock.scaleByHeight(30);
+
+  var loadBalancer = new zeu.HexGrid('news-crawler', {
+    viewWidth: 120,
+    viewHeight: 100,
+    space: 3,
+    radius: 15,
+    border: 1
+  });
+
+  var sevenHex = [
+    {x: 0, y: 1},
+    {x: 0, y: 2},
+    {x: 1, y: 0},
+    {x: 1, y: 2},
+    {x: 2, y: 1},
+    {x: 2, y: 2}
+  ];
+
+  var loadBalancerNodes = [];
+  for (var i = 0; i < sevenHex.length; i++) {
+    var d = sevenHex[i];
+    var id = 'news-crawler-' + d.x + '-' + d.y;
+    loadBalancer.saveHex({
+      id: id,
+      x: d.x,
+      y: d.y,
+      bgColor: HEX_BG,
+      borderColor: COLOR.transparent
+    });
+
+    loadBalancerNodes.push(id);
+  }
+
+  var webServer = new zeu.HexGrid('ftp-server', {
+    viewWidth: 200,
+    viewHeight: 200,
+    space: 3,
+    radius: 16,
+    border: 1
+  });
+
+  var webServerNodes = [];
+  for (var i = 0; i < 5; i++) {
+    var col = i % 2 == 0 ? 2 : 1;
+    for (var j = 0; j < col; j++) {
+      var id = 'ftp-' + i + '-' + j;
+      webServer.saveHex({
+        id: id,
+        x: i,
+        y: j,
+        bgColor: HEX_BG,
+        borderColor: COLOR.transparent
+      });
+
+      webServerNodes.push(id);
+    }
+  }
+
+
+  var apiServer = new zeu.HexGrid('hdfs-server', {
+    viewWidth: 180,
+    viewHeight: 360,
+    space: 3,
+    radius: 15,
+    border: 1
+  });
+
+  var apiServerNodes = [];
+  for (var i = 0; i < 9; i++) {
+    var col = i % 2 == 0 ? 4 : 3;
+    for (var j = 0; j < col; j++) {
+      var id = 'hdfs-' + i + '-' + j;
+      apiServer.saveHex({
+        id: id,
+        x: i,
+        y: j,
+        bgColor: HEX_BG,
+        borderColor: COLOR.transparent
+      });
+
+      apiServerNodes.push(id);
+    }
+  }
+
+  var readReplicas = new zeu.HexGrid('habse-replicas', {
+    viewWidth: 100,
+    viewHeight: 100,
+    space: 3,
+    radius: 16,
+    border: 1
+  });
+
+  var readReplicasNodes = [];
+  for (var i = 0; i < 3; i++) {
+    var col = i % 2 == 0 ? 3 : 2;
+    for (var j = 0; j < col; j++) {
+      var id = 'habse-' + i + '-' + j;
+      readReplicas.saveHex({
+        id: id,
+        x: i,
+        y: j,
+        bgColor: HEX_BG,
+        borderColor: COLOR.transparent
+      });
+
+      readReplicasNodes.push(id);
+    }
+  }
+
+  var spark = new zeu.HexGrid('spark', {
+    viewWidth: 180,
+    viewHeight: 80,
+    space: 3,
+    radius: 30,
+    border: 1,
+  });
+
+  var sparkNodes = []
+  for (var i = 0; i < 3; i++) {
+    var id = 'spark-' + i;
+    spark.saveHex({
+      id: id,
+      x: 0,
+      y: i,
+      bgColor: HEX_BG,
+      borderColor: COLOR.transparent
+    });
+    sparkNodes.push(id);
+  }
+
+  var bertNodes = [];
+  var bert = new zeu.HexGrid('bert', {
+    viewWidth: 120,
+    viewHeight: 80,
+    space: 3,
+    radius: 28,
+    border: 1
+  });
+
+  for (var i = 0; i < 2; i++) {
+    var id = 'bert-' + i;
+    bert.saveHex({
+      id: id,
+      x: 0,
+      y: i,
+      bgColor: HEX_BG,
+      borderColor: COLOR.transparent
+    });
+    bertNodes.push(id);
+  }
+
+  var networkGraph = new zeu.NetworkGraph('network-graph', {
+    viewWidth: 860,
+    viewHeight: 600
+  });
+
+  networkGraph.addNodes([
+    {
+      id: 'news-crawler',
+      x: 100,
+      y: 295,
+      color: COLOR.lightBlack,
+      size: 1
+    }
+  ]);
+
+  for (var i = 1; i <= 3; i++) {
+    var y = i * 53 + 186;
+    networkGraph.addNodes([
+      {
+        id: 'ftp-in-' + i,
+        x: 183,
+        y: y,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 4; i <= 4; i++) {
+    var y = i * 53 ;
+    networkGraph.addNodes([
+      {
+        id: 'ftp-in-' + i,
+        x: 220,
+        y: y,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 3; i++) {
+    var y = i * 53 + 186;
+    networkGraph.addNodes([
+      {
+        id: 'ftp-out-' + i,
+        x: 240,
+        y: y,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 5; i++) {
+    var y = i * 50 + 140;
+    networkGraph.addNodes([
+      {
+        id: 'hdfs-in-' + i,
+        x: 333,
+        y: y,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 5; i++) {
+    var y = i * 50 + 140;
+    networkGraph.addNodes([
+      {
+        id: 'hdfs-out-' + i,
+        x: 445,
+        y: y,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 4; i++) {
+    var y = i * 30 + 426;
+    networkGraph.addNodes([
+      {
+        id: 'kafka-in-' + i,
+        x: 504,
+        y: y,
+        color: HEX_BG,
+        size: 2,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 1; i++) {
+    var y = i * 30 + 395;
+    networkGraph.addNodes([
+      {
+        id: 'kafka-mid-' + i,
+        x: 580,
+        y: y,
+        color: HEX_BG,
+        size: 2,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 4; i++) {
+    var y = i * 30 + 426;
+    networkGraph.addNodes([
+      {
+        id: 'kafka-out-' + i,
+        x: 636,
+        y: y,
+        color: HEX_BG,
+        size: 2,
+      }
+    ]);
+  }
+
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 55 + 655;
+    networkGraph.addNodes([
+      {
+        id: 'spark-in-' + i,
+        x: x,
+        y: 420,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 55 + 655;
+    networkGraph.addNodes([
+      {
+        id: 'spark-out-' + i,
+        x: x,
+        y: 366,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 55 + 655;
+    networkGraph.addNodes([
+      {
+        id: 'spark-in-mid-' + i,
+        x: x,
+        y: 350,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 31 + 696;
+    networkGraph.addNodes([
+      {
+        id: 'hbase-in-' + i,
+        x: x,
+        y: 277,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 31 + 696;
+    networkGraph.addNodes([
+      {
+        id: 'hbase-out-' + i,
+        x: x,
+        y: 200,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 4; i <= 5; i++) {
+    var y = i * 52 + 2;
+    networkGraph.addNodes([
+      {
+        id: 'hbase-in-' + i,
+        x: 714,
+        y: y,
+        color: COLOR.lightBlack,
+        //color: '#ff0000',
+        size: 1,
+      }
+    ]);
+  }
+
+  networkGraph.addNodes([
+    {
+      id: 'bert-in-1',
+      x: 654,
+      y: 110,
+      color: COLOR.lightBlack,
+      size: 1,
+    }
+  ]);
+
+  for (var i = 1; i <= 3; i++) {
+    var x = i * 60 + 290;
+    networkGraph.addNodes([
+      {
+        id: 'nifi-out-' + i,
+        x: x,
+        y: 108,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  for (var i = 1; i <= 2; i++) {
+    var x = i * 30 + 345;
+    networkGraph.addNodes([
+      {
+        id: 'hdfs-mid-' + i,
+        x: x,
+        y: 175,
+        color: COLOR.lightBlack,
+        size: 1,
+      }
+    ]);
+  }
+
+  setInterval(function() {
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+          from: 'news-crawler',
+          to: 'ftp-in-' + getRandomInt(1, 3),
+          color: getSignalColor(),
+          duration: 10000,
+          size: getRandomInt(1, 2)
+        });
+    }
+    for (var i = 0; i < 10; i++) {
+      networkGraph.signal({
+        from: 'ftp-out-' + getRandomInt(1, 3),
+        to: 'hdfs-in-' + getRandomInt(1, 5),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'hdfs-out-' + getRandomInt(1, 5),
+        to: 'kafka-in-' + getRandomInt(1, 4),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+    for (var i = 0; i < 3; i++) {
+      networkGraph.signal({
+        from: 'hbase-out-' + getRandomInt(1, 3),
+        to: 'bert-in-1',
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+/*
+    for (var i = 0; i < 10; i++) {
+      networkGraph.signal({
+        from: 'hdfs-out-' + getRandomInt(1, 5),
+        to: 'spark-in-1',
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+*/
+/*
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'hdfs-out-' + getRandomInt(1, 5),
+        to: 'bert-in-1',
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+*/
+/*
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'hdfs-out-' + getRandomInt(1, 5),
+        to: 'hbase-in-' + getRandomInt(4, 5),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+*/
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'kafka-out-' + getRandomInt(1, 4),
+        to: 'spark-in-' + getRandomInt(1, 3),
+        color: getSignalColor(),
+        duration: 12000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'spark-out-' + getRandomInt(1, 3),
+        to: 'hbase-in-' + getRandomInt(1, 3),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+    for (var i = 0; i < 5; i++) {
+      networkGraph.signal({
+        from: 'spark-out-' + getRandomInt(1, 3),
+        to: 'hbase-in-' + getRandomInt(1, 3),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+
+/*
+    for (var i = 0; i < 3; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(1, 3),
+        to: 'hdfs-mid-' + getRandomInt(1, 2),
+        color: getSignalColor(),
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+*/
+
+/*
+    for (var i = 0; i < 3; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(1, 3),
+        to: 'ftp-in-' + getRandomInt(1, 2),
+        //color: getSignalColor(),
+        color: '#ff0000',
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+  */
+
+    for (var i = 0; i < 1; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(1, 1),
+        to: 'ftp-in-' + getRandomInt(4, 4),
+        //color: getSignalColor(),
+        color: '#ff0000',
+        duration: 10000,
+        size: getRandomInt(2, 2)
+      });
+    }
+
+/*
+    for (var i = 0; i < 3; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(1, 3),
+        to: 'kafka-mid-' + getRandomInt(1, 2),
+        //color: getSignalColor(),
+        color: '#ff0000',
+        duration: 10000,
+        size: getRandomInt(1, 2)
+      });
+    }
+*/
+    for (var i = 0; i < 1; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(2, 2),
+        to: 'kafka-mid-' + getRandomInt(1, 1),
+        //color: getSignalColor(),
+        color: '#ff0000',
+        duration: 10000,
+        size: getRandomInt(2, 2)
+      });
+    }
+
+
+
+    for (var i = 0; i < 1; i++) {
+      networkGraph.signal({
+        from: 'nifi-out-' + getRandomInt(3, 3),
+        to: 'spark-in-mid-' + getRandomInt(2, 2),
+        //color: getSignalColor(),
+        color: '#ff0000',
+        duration: 10000,
+        size: getRandomInt(2, 2)
+      });
+    }
+
+  }, 300);
+
+  var schedulers = [];
+  for (var i = 1; i <=3; i++) {
+    var scheduler = new zeu.SpeedCircle('nifi-' + i, {
+      text: {
+        value: 'ON',
+        color: HEX_BG
+      },
+      circle1: {
+        speed: getRandomInt(-2, 2),
+        color: HEX_BG
+      },
+      circle2: {
+        speed: getRandomInt(-2, 2),
+        color: getBlinkColor()
+      },
+      circle3: {
+        speed: getRandomInt(-2, 2),
+        color: HEX_BG
+      }
+    });
+    scheduler.scaleByHeight(60);
+    schedulers.push(scheduler);
+  }
+
+  setInterval(function() {
+    for (var i = 0; i < schedulers.length; i++) {
+      schedulers[i].speed1 = getRandomInt(-2, 2);
+      schedulers[i].speed2 = getRandomInt(-2, 2);
+      schedulers[i].speed3 = getRandomInt(-2, 2);
+
+      schedulers[i].color2 = getBlinkColor();
+      schedulers[i].color4 = getBlinkColor();
+    }
+  }, 2000);
+
+  function blinkNode(hexGrid, nodeIds) {
+    for (var i = 0; i < nodeIds.length; i++) {
+      var a = getRandomInt(1, 10);
+      if (a <= 2) {
+        hexGrid.blinkOn({
+          id: nodeIds[i],
+          bgColor: getBlinkColor(),
+          borderColor: COLOR.transparent,
+          interval: 500
+        });
+      } else {
+        hexGrid.blinkOff(nodeIds[i]);
+      }
+    }
+  }
+
+  setInterval(function() {
+    blinkNode(apiServer, apiServerNodes);
+    blinkNode(webServer, webServerNodes);
+    blinkNode(loadBalancer, loadBalancerNodes);
+    blinkNode(readReplicas, readReplicasNodes);
+    blinkNode(spark, sparkNodes);
+    blinkNode(bert, bertNodes);
+  }, 5000);
+
+
+  function getRandomColor() {
+    return '#' + ((1 << 24) * Math.random() | 0).toString(16);
+  }
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+</script>
+   
+  </body>
+</html>
